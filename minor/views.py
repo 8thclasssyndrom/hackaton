@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.views import View
 from django.views.generic import ListView
+from django.db.models import Q
 
 from main.models import Category
 
@@ -9,12 +11,11 @@ class MainPageView(ListView):
     model = Category
     template_name = 'minor/index.html'
     context_object_name = 'categories'
+    paginate_by = 2
 
 
-# это для, того чтобы дописать наши контакты и почты
-# надеюсь сможешь добавить инфу в темплейтку
 def contacts(request):
-    return render(request, 'minor/contacts.html')
+        return render(request, 'minor/contacts.html')
 
 
 # тоже типо-мини-блог
