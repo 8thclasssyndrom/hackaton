@@ -31,6 +31,7 @@ class CharacterDetailView(DetailView):
     template_name = 'main/character.html'
     context_object_name = 'character'
 
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
