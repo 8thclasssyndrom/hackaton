@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block content  %}
+    <!-- Product Section Begin -->
+    <div class="image">
+        <img src="{% static 'img/welcome.jpg' %}" style="width: 1550px  ;height: 664px" >
+    </div>
+    <section class="product spad">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="live__product">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="section-title">
+                                    <h4>Аниме</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <div class="btn__all">
+                                    <a href="#" class="primary-btn">Весь список аниме<span class="arrow_right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            {% for category in categories   %}
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__text">
+                                        <a href="{% url 'category' category.slug %}" ><img src="{{ category.image.url  }}"></a>
+                                        <h5><a href="{% url 'category' category.slug %}">{{ category.name  }}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor    %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Product Section End -->
+
+{% endblock content   %}

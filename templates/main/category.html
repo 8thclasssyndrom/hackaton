@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block content  %}
+
+<!-- Category Section Begin -->
+<section class="anime-details spad">
+    <div class="container">
+        <div class="anime__details__content">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="anime__details__text">
+                        <div class="anime__details__title">
+                            <h3>{{ category.name }}</h3>
+                        </div>
+                        <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                        <br>
+                        <br>
+                        <div class="product__page__title">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-6">
+                                    <div class="section-title">
+                                        <h4>Описание</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>{{ category.description }}</p>
+                        <br>
+
+
+                        <div class="product__page__title">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-6">
+                                    <div class="section-title">
+                                        <h4>Вселенная</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>{{ category.universe }}</p>
+                        <br>
+
+
+
+                        <div class="product__page__title">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-6">
+                                    <div class="section-title">
+                                        <h4>Сюжет</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>{{ category.plot }}</p>
+                        <br>
+
+                        <div class="product__page__title">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-6">
+                                    <div class="section-title">
+                                        <h4>Аниме</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <p>{{ category.anime }}</p>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Category Section End -->
+
+
+
+<!-- Product Section Begin -->
+
+<section class="product-page spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="product__page__content">
+                    <div class="product__page__title">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-6">
+                                <div class="section-title">
+                                    <h4>Персонажи</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% for character in characters   %}
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__text">
+                                    <a href="{% url 'character' character.id   %}" ><img    src="{{ character.get_image  }}"></a>
+                                    <h5><a href="{% url 'character' character.id   %}">{{ character }}</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor  %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Product Section End -->
+{% endblock content   %}

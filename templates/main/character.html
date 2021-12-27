@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block content  %}
+<!-- Anime Section Begin -->
+<section class="anime-details spad">
+    <div class="container">
+        <div class="anime__details__content">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="anime__details__text">
+                        <div class="anime__details__title">
+                            <h3>{{ character.name }}</h3>
+                        </div>
+                        <img src="{{ character.get_image }}" alt="{{ character.name }}">
+                        <div class="anime__details__widget">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                        <br>
+                                        <li><span>Пол: </span>{{ character.gender }}</li>
+                                        <li><span>Возраст: </span> {{ character.age }}</li>
+                                        <li><span>Статус: </span>{{ character.status }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        <br>
+                        <h4 style="color: white" >Описание</h4>
+                        <br>
+                        <p>{{ character.description }}</p>
+                        <br>
+
+                        <h4 style="color: white" >Внешность</h4>
+                            <br>
+                        <p>{{ character.appearance }}</p>
+                        <br>
+
+                        <h4 style="color: white" >История</h4>
+                            <br>
+                        <p>{{ character.story }}</p>
+                        <br>
+
+                        <h3 style="color: white" >Способности</h3>
+                            <br>
+                        <p>{{ character.power }}</p>
+                        <br>
+
+                        <h4 style="color: white" >Цитата</h4>
+                            <br>
+                        <p>{{ character.quote }}</p>
+                        <br>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Anime Section End -->
+
+{% endblock content   %}
