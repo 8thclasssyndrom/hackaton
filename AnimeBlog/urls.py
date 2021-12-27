@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('minor.urls')),
     path('category/', include('main.urls')),
+    path('create/', CharacterCreateView.as_view(), name='create'),
 
 ]
 

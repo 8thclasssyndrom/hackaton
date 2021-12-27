@@ -9,7 +9,6 @@ class CreateCharacterForm(forms.ModelForm):
         model = Character
         fields = '__all__'
 
-
 class UpdateCharacterForm(forms.ModelForm):
     class Meta:
         model = Character

@@ -1,5 +1,5 @@
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.shortcuts import redirect
-from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from main.forms import CreateCharacterForm, UpdateCharacterForm
@@ -42,32 +42,37 @@ class GenreListView(ListView):
     context_object_name = 'genre'
 
 
-class CharacterCreateView(CreateView):
+
+class IsAdminMixin(UserPassesTestMixin):
+    def test_func(self):
+        user = self.request.user
+        return user.is_authenticated and user.is_staff
+
+
+class CharacterCreateView(IsAdminMixin, CreateView):
     model = Character
     template_name = 'main/create.html'
     form_class = CreateCharacterForm
     success_url = reverse_lazy('home')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['character_form'] = self.get_form(self.get_form_class())
-        return context
+    def post(self, request, *args, **kwargs):
+        self.object = None
+        form = CreateCharacterForm(request.POST)
+        if form.is_valid():
+            character = form.save()
+            return redirect(character.get_absolute_url())
+        return self.form_invalid(form)
 
 
-class CharacterUpdateView(UpdateView):
+class CharacterUpdateView(IsAdminMixin, UpdateView):
     model = Character
     form_class = UpdateCharacterForm
     template_name = 'main/update.html'
     pk_url_kwarg = 'character_id'
     success_url = reverse_lazy('home')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['character_form'] = self.get_form(self.get_form_class())
-        return context
 
-
-class CharacterDeleteView(DeleteView):
+class CharacterDeleteView(IsAdminMixin, DeleteView):
     model = Character
     template_name = 'main/delete.html'
     pk_url_kwarg = 'character_id'

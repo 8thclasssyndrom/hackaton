@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse_lazy
 
 
 class Category(models.Model):
@@ -26,22 +27,13 @@ class Character(models.Model):
     power = models.TextField(null=True, blank=True)
     quote = models.TextField( blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='characters')
+    image = models.ImageField(upload_to='characters', blank=True, null=True)
 
     def __str__(self):
         return self.name
 
-    @property
-    def get_image(self):
-        return self.images.first()
-
-
-class Image(models.Model):
-    image = models.ImageField(upload_to='characters')
-    character = models.ForeignKey(Character, on_delete=models.CASCADE, related_name='images')
-
-    def __str__(self):
-        return self.image.url
-
+    def get_absolute_url(self):
+        return reverse_lazy('character', args=(self.id,))
 
 
 class Genre(models.Model):
