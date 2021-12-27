@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
-{% block body %}
-<h1> Hello</h1>
-  <h1>Вы действительно хотите удалить продукт</h1>
+{% block content %}
+
+<h2> Belysh</h2>
+  <h3>Вы действительно хотите удалить продукт</h3>
   <form method="post" >
       {% csrf_token %}
         <button type="submit">Удалить</button>
-      <a href="{% url 'product-details' product.id %}"><button type="button">Отмена</button></a>
+      <a href="{% url 'character' character.id %}"><button type="button">Отмена</button></a>
   </form>
-{% endblock body %}
+
+{% endblock content %}

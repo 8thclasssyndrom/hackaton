@@ -20,6 +20,8 @@
                                         <li><span>Пол: </span>{{ character.gender }}</li>
                                         <li><span>Возраст: </span> {{ character.age }}</li>
                                         <li><span>Статус: </span>{{ character.status }}</li>
+                                        <a href="{% url 'update' character.id %}"  >Update<i class="fas fa-edit"></i></a>
+                                        <a href="{% url 'delete' character.id %}" >Delete<i class="fas fa-trash"></i></a>
                                     </ul>
                                 </div>
                             </div>

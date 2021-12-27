@@ -71,7 +71,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'last_hope',
-        'USER': 'ananas',
+        'USER': 'aika',
         'PASSWORD': '1',
         'HOST': 'localhost',
         'PORT': 5432

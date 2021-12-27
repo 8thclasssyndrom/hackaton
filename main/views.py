@@ -1,4 +1,6 @@
+from django.contrib import messages
 from django.contrib.auth.mixins import UserPassesTestMixin
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -31,8 +33,6 @@ class CharacterDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        image = self.get_object().get_image
-        context['images'] = self.get_object().images.exclude(id=image.id)
         return context
 
 
@@ -49,36 +49,28 @@ class IsAdminMixin(UserPassesTestMixin):
         return user.is_authenticated and user.is_staff
 
 
-class CharacterCreateView(IsAdminMixin, CreateView):
+class CharacterCreateView(IsAdminMixin,CreateView):
     model = Character
     template_name = 'main/create.html'
     form_class = CreateCharacterForm
     success_url = reverse_lazy('home')
 
-    def post(self, request, *args, **kwargs):
-        self.object = None
-        form = CreateCharacterForm(request.POST)
-        if form.is_valid():
-            character = form.save()
-            return redirect(character.get_absolute_url())
-        return self.form_invalid(form)
 
-
-class CharacterUpdateView(IsAdminMixin, UpdateView):
-    model = Character
+class CharacterUpdateView(IsAdminMixin,UpdateView):
+    queryset = Character.objects.all()
     form_class = UpdateCharacterForm
     template_name = 'main/update.html'
-    pk_url_kwarg = 'character_id'
-    success_url = reverse_lazy('home')
+    context_object_name = 'character'
 
 
-class CharacterDeleteView(IsAdminMixin, DeleteView):
+class CharacterDeleteView(IsAdminMixin,DeleteView):
     model = Character
     template_name = 'main/delete.html'
-    pk_url_kwarg = 'character_id'
-    success_url = 'home'
+    success_url = reverse_lazy('home')
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
+        success_url = self.get_success_url()
         self.object.delete()
-        return redirect('home')
+        messages.add_message(request, messages.SUCCESS, 'Successfully deleted!')
+        return HttpResponseRedirect(success_url)
