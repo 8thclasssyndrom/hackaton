@@ -47,10 +47,9 @@
                         <nav class="header__menu mobile-menu">
                             <ul>
                                 <li class="active"><a href="{% url 'home'  %}">Главная страница</a></li>
-                                <li><a href="{% url 'genre'   %}">Жанры</a></li>
                                 <li><a href="{% url 'blog'  %}">Блог</a></li>
                                 <li><a href="{% url 'contacts' %}">Контакты</a></li>
-                                <li><a href="./categories.html">Ещё<span class="arrow_carrot-down"></span></a>
+                                <li><a href="#">Ещё<span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
                                         <li><a href="{% url 'create'  %}">Создание персонажа</a></li>
                                     </ul>
@@ -99,8 +98,7 @@
                 <div class="footer__nav">
                     <ul>
                         <li class="active"><a href="{% url 'home'   %}">Главная страница</a></li>
-                        <li><a href="#">Категории</a></li>
-                        <li><a href="#">Жанры</a></li>
+                        <li><a href="{% url 'category-list'  %}">Аниме</a></li>
                         <li><a href="{% url 'contacts'  %}">Контакты</a></li>
                     </ul>
                 </div>

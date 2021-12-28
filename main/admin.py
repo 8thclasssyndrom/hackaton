@@ -5,4 +5,3 @@ from main.models import *
 
 admin.site.register(Category)
 admin.site.register(Character)
-admin.site.register(Genre)

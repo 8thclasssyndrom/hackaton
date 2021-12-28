@@ -36,10 +36,5 @@ class Character(models.Model):
         return reverse_lazy('character', args=(self.id,))
 
 
-class Genre(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.SlugField(primary_key=True, max_length=50)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='genre')
 
-    def __str__(self):
-        return self.name
+

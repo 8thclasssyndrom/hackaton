@@ -8,6 +8,12 @@ from main.forms import CreateCharacterForm, UpdateCharacterForm
 from main.models import *
 
 
+class CategoryListView(ListView):
+    model = Category
+    template_name = 'main/category-list.html'
+    context_object_name = 'categories'
+
+
 class CategoryDetailView(DetailView):
     model = Category
     template_name = 'main/category.html'
@@ -31,16 +37,10 @@ class CharacterDetailView(DetailView):
     template_name = 'main/character.html'
     context_object_name = 'character'
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
 
-
-class GenreListView(ListView):
-    model = Genre
-    template_name = 'main/genre.html'
-    context_object_name = 'genre'
 
 
 # class AddCommentView(CreateView):
@@ -84,3 +84,4 @@ class CharacterDeleteView(IsAdminMixin,DeleteView):
         self.object.delete()
         messages.add_message(request, messages.SUCCESS, 'Successfully deleted!')
         return HttpResponseRedirect(success_url)
+
