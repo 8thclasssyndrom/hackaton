@@ -41,3 +41,10 @@ def contacts(request):
 def blog(request):
     return render(request, 'minor/blog.html')
 
+class SearchResultsView(View):
+    def get(self, request):
+        queryset = None
+        search_param = request.GET.get('search')
+        if search_param is not None:
+            queryset = Category.objects.filter(Q(name__icontains=search_param)|Q(description__icontains=search_param))
+        return render(request, 'minor/index.html', {'categories': queryset})

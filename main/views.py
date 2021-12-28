@@ -34,11 +34,6 @@ class CharacterDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-<<<<<<< HEAD
-        image = self.get_object().get_image
-        context['images'] = self.get_object().exclude(id=image.id)
-=======
->>>>>>> bd23f09a0a2e29b138762899145e1007b53eda4b
         return context
 
 
@@ -48,6 +43,15 @@ class GenreListView(ListView):
     context_object_name = 'genre'
 
 
+# class AddCommentView(CreateView):
+#     model = Comment
+#     form_class = CommentForm
+#     # fields = 'all'
+#     template_name = 'add_comment.html'
+#     def form_valid(self, form):
+#         form.instance.post_id = self.kwargs['product_id']
+#         return super().form_valid(form)
+#     success_url = reverse_lazy('home')
 
 class IsAdminMixin(UserPassesTestMixin):
     def test_func(self):
@@ -55,24 +59,15 @@ class IsAdminMixin(UserPassesTestMixin):
         return user.is_authenticated and user.is_staff
 
 
-<<<<<<< HEAD
 class CharacterCreateView(CreateView):
-=======
-class CharacterCreateView(IsAdminMixin,CreateView):
->>>>>>> bd23f09a0a2e29b138762899145e1007b53eda4b
     model = Character
     template_name = 'main/create.html'
     form_class = CreateCharacterForm
     success_url = reverse_lazy('home')
 
 
-<<<<<<< HEAD
 class CharacterUpdateView(UpdateView):
-    model = Character
-=======
-class CharacterUpdateView(IsAdminMixin,UpdateView):
     queryset = Character.objects.all()
->>>>>>> bd23f09a0a2e29b138762899145e1007b53eda4b
     form_class = UpdateCharacterForm
     template_name = 'main/update.html'
     context_object_name = 'character'

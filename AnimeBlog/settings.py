@@ -61,13 +61,8 @@ WSGI_APPLICATION = 'AnimeBlog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-<<<<<<< HEAD
         'NAME': 'db_hackaton',
         'USER': 'ananas',
-=======
-        'NAME': 'last_hope',
-        'USER': 'aika',
->>>>>>> bd23f09a0a2e29b138762899145e1007b53eda4b
         'PASSWORD': '1',
         'HOST': 'localhost',
         'PORT': 5432
@@ -136,3 +131,4 @@ LOGOUT_REDIRECT_URL = "home"
 
 SIGN_UP_URL = 'login'
 SIGN_UP_REDIRECT_URL = "home"
+

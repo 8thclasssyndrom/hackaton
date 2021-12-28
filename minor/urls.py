@@ -10,4 +10,5 @@ urlpatterns = [
     path('contacts/', contacts, name='contacts'),
     path('blog/', blog, name='blog'),
     path('genre/', GenreListView.as_view(), name="genre"),
+    path('search', SearchResultsView.as_view(), name='search'),
 ]
