@@ -32,7 +32,7 @@ class CharacterDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         image = self.get_object().get_image
-        context['images'] = self.get_object().images.exclude(id=image.id)
+        context['images'] = self.get_object().exclude(id=image.id)
         return context
 
 
@@ -49,7 +49,7 @@ class IsAdminMixin(UserPassesTestMixin):
         return user.is_authenticated and user.is_staff
 
 
-class CharacterCreateView(IsAdminMixin, CreateView):
+class CharacterCreateView(CreateView):
     model = Character
     template_name = 'main/create.html'
     form_class = CreateCharacterForm
@@ -64,7 +64,7 @@ class CharacterCreateView(IsAdminMixin, CreateView):
         return self.form_invalid(form)
 
 
-class CharacterUpdateView(IsAdminMixin, UpdateView):
+class CharacterUpdateView(UpdateView):
     model = Character
     form_class = UpdateCharacterForm
     template_name = 'main/update.html'

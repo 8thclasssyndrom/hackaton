@@ -157,7 +157,7 @@ ol {
 	font-size: 13px;
 	font-weight: 700;
 	text-transform: uppercase;
-	color: #ffffff;
+	color: white;
 	letter-spacing: 2px;
 }
 
@@ -445,7 +445,7 @@ ol {
 
 .hero__text .label {
 	font-size: 13px;
-	color: #e53637;
+	color: white;
 	background: #ffffff;
 	padding: 5px 14px 3px;
 	display: inline-block;
@@ -1752,34 +1752,34 @@ ol {
 	height: 50px;
 	width: 100%;
 	font-size: 15px;
-	color: #b7b7b7;
+	color: #white;
 	background: #ffffff;
 	border: none;
 	padding-left: 76px;
 }
 
 .login__form form .input__item input::-webkit-input-placeholder {
-	color: #b7b7b7;
+	color: white;
 }
 
 .login__form form .input__item input::-moz-placeholder {
-	color: #b7b7b7;
+	color: white;
 }
 
 .login__form form .input__item input:-ms-input-placeholder {
-	color: #b7b7b7;
+	color: white;
 }
 
 .login__form form .input__item input::-ms-input-placeholder {
-	color: #b7b7b7;
+	color: white;
 }
 
 .login__form form .input__item input::placeholder {
-	color: #b7b7b7;
+	color: white;
 }
 
 .login__form form .input__item span {
-	color: #b7b7b7;
+	color: white;
 	font-size: 20px;
 	position: absolute;
 	left: 15px;
@@ -1793,7 +1793,8 @@ ol {
 
 .login__form .forget_pass {
 	font-size: 15px;
-	color: #ffffff;
+	color: white ;
+	background: #e53637
 	display: inline-block;
 	position: absolute;
 	right: 60px;
@@ -1812,7 +1813,7 @@ ol {
 }
 
 .login__register .primary-btn {
-	background: #e53637;
+	background: white;
 	padding: 12px 42px;
 }
 
@@ -1895,7 +1896,7 @@ ol {
 }
 
 .signup .login__form h5 a {
-	color: #e53637;
+	color: white;
 	font-weight: 700;
 }
 
@@ -1915,6 +1916,8 @@ ol {
 	margin: 0;
 	text-align: center;
 }
+
+
 
 /*---------------------
   Footer

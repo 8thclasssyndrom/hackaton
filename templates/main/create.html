@@ -1,8 +1,19 @@
-<h1>Hello world</h1>
- <h1>Добавить товар</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <button type="submit">Создать</button>
-    </form>
+{% extends 'base.html' %}
+{% block content  %}
+<section class="login spad">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+                <h2>Добавить товар</h2>
+                <br>
+                <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                    <button type="submit" class="site-btn">Создать</button>
+                </form>
+        </div>
+    </div>
+</div>
+</section>
+<!-- SignUp Section End -->
+{% endblock content  %}

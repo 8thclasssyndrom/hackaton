@@ -1,0 +1,22 @@
+{%  extends 'base.html'   %}
+{% block content %}
+
+<!-- SignUp Section Begin -->
+<section class="login spad">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+                <h2>Регистрация</h2>
+                <br>
+                <form method="post" enctype="multipart/form-data">
+                    {{form.as_p}}
+                    {%csrf_token%}
+                    <button type="submit" class="site-btn">Регистрация</button>
+                </form>
+        </div>
+    </div>
+</div>
+</section>
+<!-- SignUp Section End -->
+
+{%  endblock content  %}

@@ -10,7 +10,7 @@ urlpatterns = [
     path('', include('minor.urls')),
     path('category/', include('main.urls')),
     path('create/', CharacterCreateView.as_view(), name='create'),
-
+    path('account/', include('account.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
