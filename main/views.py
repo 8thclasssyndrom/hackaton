@@ -43,6 +43,15 @@ class GenreListView(ListView):
     context_object_name = 'genre'
 
 
+# class AddCommentView(CreateView):
+#     model = Comment
+#     form_class = CommentForm
+#     # fields = '__all__'
+#     template_name = 'add_comment.html'
+#     def form_valid(self, form):
+#         form.instance.post_id = self.kwargs['product_id']
+#         return super().form_valid(form)
+#     success_url = reverse_lazy('home')
 
 class IsAdminMixin(UserPassesTestMixin):
     def test_func(self):

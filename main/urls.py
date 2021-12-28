@@ -7,5 +7,5 @@ urlpatterns = [
     path('character/<int:pk>/', CharacterDetailView.as_view(), name="character"),
     path('character/<int:pk>/update', CharacterUpdateView.as_view(), name='update'),
     path('character/<int:pk>/delete', CharacterDeleteView.as_view(), name='delete'),
-
+    # path('сharacter/<int:character_id>/comment/', AddCommentView.as_view(), name='add_comment'),
 ]
