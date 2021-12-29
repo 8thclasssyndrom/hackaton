@@ -20,9 +20,6 @@ def contacts(request):
 
 # тоже типо-мини-блог
 # можно добавить пару смешных статей про аниме
-def blog(request):
-    return render(request, 'minor/blog.html')
-
 
 class SearchResultsView(View):
     def get(self, request):

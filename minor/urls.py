@@ -7,6 +7,5 @@ from minor.views import *
 urlpatterns = [
     path('', MainPageView.as_view(), name="home"),
     path('contacts/', contacts, name='contacts'),
-    path('blog/', blog, name='blog'),
     path('search', SearchResultsView.as_view(), name='search'),
 ]
