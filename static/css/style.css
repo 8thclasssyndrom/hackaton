@@ -1398,7 +1398,7 @@ ol {
 }
 
 .blog__item__text p {
-	color: #ffffff;
+	color: #000000;
 	margin-bottom: 12px;
 }
 
@@ -1450,7 +1450,7 @@ ol {
 .blog__details__title .blog__details__social a {
 	display: inline-block;
 	font-size: 15px;
-	color: #ffffff;
+	color: #000000;
 	padding: 16px 35px 14px 20px;
 	border-radius: 2px;
 	margin-right: 6px;
