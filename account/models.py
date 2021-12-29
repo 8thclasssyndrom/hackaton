@@ -63,3 +63,5 @@ class User(AbstractBaseUser):
             'admin@gmail.com',
             [self.email]
         )
+
+

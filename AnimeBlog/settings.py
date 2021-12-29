@@ -58,19 +58,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'AnimeBlog.wsgi.application'
 
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_hackaton',
+        'NAME': 'last_survived',
         'USER': 'ananas',
         'PASSWORD': '1',
         'HOST': 'localhost',
         'PORT': 5432
     }
 }
-
 
 
 AUTH_PASSWORD_VALIDATORS = [

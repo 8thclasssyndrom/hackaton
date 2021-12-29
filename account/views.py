@@ -11,6 +11,7 @@ from account.forms import (SignUpForm, ChangePasswordForm, ForgotPasswordForm, F
 User = get_user_model()
 
 
+
 class SignUpView(View):
     form_class = SignUpForm
     template_name = 'account/sign-up.html'
