@@ -1,10 +1,6 @@
 from django.contrib import admin
 
-from .models import Post
+from .models import Blog, Comment
 
-
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'author', 'publish', 'status')
-
-
-admin.site.register(Post, PostAdmin)
+admin.site.register(Blog)
+admin.site.register(Comment)
