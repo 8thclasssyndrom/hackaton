@@ -61,9 +61,9 @@ WSGI_APPLICATION = 'AnimeBlog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'last_survived',
-        'USER': 'ananas',
-        'PASSWORD': '1',
+        'NAME': 'your_bd_name',
+        'USER': 'your_user',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': 5432
     }
