@@ -1,16 +1,29 @@
 {% extends 'base.html' %}
 {% load static  %}
 {% block content  %}
-    <!-- Hero Section Begin -->
+
+  <!-- Hero Section Begin -->
     <section class="hero">
         <div class="container">
             <div class="hero__slider owl-carousel">
-                <img   src="{% static 'img/welcome.jpg' %}">
+                {% for category in categories %}
+                <div class="hero__items set-bg" data-setbg="{% static 'img/itachi.jpg' %}">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <div class="label">Приключения</div>
+                                <h2>{{ category }}</h2>
+                                <p>{{ category.description|truncatewords:10  }}</p>
+                                <a href="{% url 'category' category.slug %}"><span>Узнать больше</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor  %}
             </div>
         </div>
     </section>
     <!-- Hero Section End -->
-
 
     <!-- Product Section Begin -->
     <section class="product spad">
@@ -42,8 +55,8 @@
                             </div>
                             {% endfor    %}
                         </div>
-                        <nav aria-label="...">
-                            <ul class="pagination pagination-sm">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-sm">
                                 {%  if page_obj.has_previous  %}
                                 <li class="page-item"><a class="page-link" href="{% url 'home' %}?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
                                 {% endif %}
